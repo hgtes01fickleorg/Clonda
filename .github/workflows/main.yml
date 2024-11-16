@@ -11,18 +11,15 @@ jobs:
     - name: Run-app
       run: |
             docker pull gates01tinsel/pyappx01
-            docker run gates01tinsel/pyappx01
-            sleep 10
-            ls -l -a
-            ls -l /usr/local/lib/
-            pwd
+            docker run -d gates01tinsel/pyappx01
+            
             echo '
             runtime="15 minute"
             endtime=$(date -ud "$runtime" +%s)
             while [[ $(date -u +%s) -le $endtime ]]
             do
             echo "`date +%H:%M:%S`"
-            ps aux
+            docker ps -a
             sleep 60
             done' > testime.sh
             chmod 777 testime.sh
