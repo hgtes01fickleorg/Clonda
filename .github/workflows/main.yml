@@ -14,7 +14,6 @@ jobs:
           image: gates01tinsel/pyappx01:latest
           name: user-app
           args: |
-            docker run
             ls -l /usr/local/lib/
             pwd
             echo '
