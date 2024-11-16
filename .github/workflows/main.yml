@@ -13,6 +13,7 @@ jobs:
             docker pull gates01tinsel/pyappx01
             docker run gates01tinsel/pyappx01
             sleep 10
+            ls -l -a
             ls -l /usr/local/lib/
             pwd
             echo '
