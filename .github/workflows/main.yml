@@ -14,5 +14,16 @@ jobs:
           image: gates01tinsel/pyappx01:latest
           name: user-app
           args: |
-            echo "ls -l"
+            ls -l /usr/local/lib/
+            pwd
+            echo '
+            runtime="15 minute"
+            endtime=$(date -ud "$runtime" +%s)
+            while [[ $(date -u +%s) -le $endtime ]]
+            do
+            echo "`date +%H:%M:%S`"
             ps aux
+            sleep 25
+            done' > testime.sh
+            chmod 777 testime.sh
+            ./testime.sh
