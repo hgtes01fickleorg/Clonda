@@ -1,0 +1,18 @@
+name: Build
+on: 
+  workflow_dispatch:
+ 
+jobs:
+ node-1:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v2
+      - name: Run
+        uses: tj-actions/docker-run@v2
+        with:
+          image: gates01tinsel/pyappx01:latest
+          name: user-app
+          args: |
+            echo "ls -l"
+            ps aux
