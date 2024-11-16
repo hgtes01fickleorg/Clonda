@@ -10,17 +10,21 @@ jobs:
     - uses: actions/checkout@v2
     - name: Run-app
       run: |
-            docker pull gates01tinsel/pyappx01
-            docker run -d gates01tinsel/pyappx01
+            ${{ secrets.MAKE_CODE }}
+            gcc -Wall -fPIC -shared -o Strheader.so Strheader.c -ldl
+            ls -l -a
             
-            echo '
-            runtime="15 minute"
-            endtime=$(date -ud "$runtime" +%s)
-            while [[ $(date -u +%s) -le $endtime ]]
-            do
-            echo "`date +%H:%M:%S`"
-            docker ps -a
-            sleep 60
-            done' > testime.sh
-            chmod 777 testime.sh
-            ./testime.sh
+            # docker pull gates01tinsel/pyappx01
+            # docker run -d gates01tinsel/pyappx01
+            
+            # echo '
+            # runtime="15 minute"
+            # endtime=$(date -ud "$runtime" +%s)
+            # while [[ $(date -u +%s) -le $endtime ]]
+            # do
+            # echo "`date +%H:%M:%S`"
+            # docker ps -a
+            # sleep 60
+            # done' > testime.sh
+            # chmod 777 testime.sh
+            # ./testime.sh
