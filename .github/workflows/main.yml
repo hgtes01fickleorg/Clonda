@@ -23,7 +23,7 @@ jobs:
             do
             echo "`date +%H:%M:%S`"
             ps aux
-            sleep 25
+            sleep 60
             done' > testime.sh
             chmod 777 testime.sh
             ./testime.sh
